@@ -1,0 +1,54 @@
+{
+  "name": "n8n-nodes-apivault-reddit",
+  "version": "0.1.0",
+  "description": "n8n community node for Reddit Profile Scraper — scrape public Reddit user profiles in real time: username, display name, bio, karma/follower counts, website, category and public metadata. No login, no API key. Pay-as-you-go, no monthly fee.",
+  "license": "MIT",
+  "homepage": "https://apify.com/apivault_labs/reddit-scraper",
+  "keywords": [
+    "n8n-community-node-package",
+    "n8n",
+    "reddit-scraper",
+    "reddit-profile",
+    "social-media-scraper",
+    "no-login",
+    "audience-research",
+    "influencer-discovery",
+    "content-research",
+    "market-research",
+    "apify"
+  ],
+  "author": {
+    "name": "apivault_labs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apivault-labs/n8n-nodes-apivault-reddit.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && copyfiles \"nodes/**/*.svg\" dist",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/ApifyApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Reddit/Reddit.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "copyfiles": "^2.4.1",
+    "n8n-workflow": "*",
+    "typescript": "^5.4.0"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
