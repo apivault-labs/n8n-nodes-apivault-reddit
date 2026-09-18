@@ -7,11 +7,8 @@ import type {
 
 export class ApifyApi implements ICredentialType {
 	name = 'apifyApi';
-
 	displayName = 'Apify API';
-
 	documentationUrl = 'https://docs.apify.com/platform/integrations/api';
-
 	properties: INodeProperties[] = [
 		{
 			displayName: 'API Token',
@@ -20,24 +17,12 @@ export class ApifyApi implements ICredentialType {
 			typeOptions: { password: true },
 			default: '',
 			required: true,
-			description:
-				'Your personal Apify API token. Find it in Apify Console → Settings → Integrations → API token. A free account includes monthly usage credits.',
+			description: 'Your personal Apify API token (Apify Console -> Settings -> Integrations).',
 		},
 	];
-
 	authenticate: IAuthenticateGeneric = {
 		type: 'generic',
-		properties: {
-			headers: {
-				Authorization: '=Bearer {{$credentials.apiToken}}',
-			},
-		},
+		properties: { headers: { Authorization: '=Bearer {{$credentials.apiToken}}' } },
 	};
-
-	test: ICredentialTestRequest = {
-		request: {
-			baseURL: 'https://api.apify.com/v2',
-			url: '/users/me',
-		},
-	};
+	test: ICredentialTestRequest = { request: { baseURL: 'https://api.apify.com/v2', url: '/users/me' } };
 }
