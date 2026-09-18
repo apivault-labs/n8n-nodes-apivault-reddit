@@ -3,9 +3,9 @@ node_modules/
 !*.d.ts
 tsconfig.json
 .gitignore
+.npmrc
 _npm_token.txt
 _gh_token.txt
-.npmrc
 credentials/
 nodes/**/*.ts
 _deploy.py
